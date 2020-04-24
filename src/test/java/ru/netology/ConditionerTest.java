@@ -20,7 +20,7 @@ class ConditionerTest {
 
 
     @ParameterizedTest(name = "[{index}]{0}")
-    @CsvFileSource(resources = "../../../resource/increase.csv")
+    @CsvFileSource(resources = "../../../src/test/resource/increase.csv")
     void increaseCurrentTemperature1(String test, int maxTemp, int minTemp, int curTemp, int expected) {
         Conditioner conditioner = new Conditioner();
         conditioner.setMaxTemperature(maxTemp);
