@@ -20,7 +20,7 @@ class ConditionerTest {
 
 
     @ParameterizedTest(name = "[{index}]{0}")
-    @CsvFileSource(resources = "/increase.csv")
+    @CsvFileSource(resources = "../../../resource/increase.csv")
     void increaseCurrentTemperature1(String test, int maxTemp, int minTemp, int curTemp, int expected) {
         Conditioner conditioner = new Conditioner();
         conditioner.setMaxTemperature(maxTemp);
@@ -31,7 +31,7 @@ class ConditionerTest {
     }
 
     @ParameterizedTest(name = "[{index}]{0}")
-    @CsvFileSource(resources = "/decrease.csv")
+    @CsvFileSource(resources = "../../../resource/decrease.csv")
     void decreaseCurrentTemperature1(String test, int maxTemp, int minTemp, int curTemp, int expected) {
         Conditioner conditioner = new Conditioner();
         conditioner.setMaxTemperature(maxTemp);
@@ -41,29 +41,6 @@ class ConditionerTest {
         assertEquals(expected, conditioner.getCurrentTemperature());
     }
 
-    @Disabled
-    @Test
-    void increaseCurrentTemperature() {
-        Conditioner conditioner = new Conditioner();
-        conditioner.setMaxTemperature(26);
-        conditioner.setMinTemperature(15);
-        conditioner.setCurrentTemperature(17);
-        int expected = 18;
-        conditioner.increaseCurrentTemperature();
-        assertEquals(expected, conditioner.getCurrentTemperature());
-    }
-
-    @Disabled
-    @Test
-    void decreaseCurrentTemperature() {
-        Conditioner conditioner = new Conditioner();
-        conditioner.setMaxTemperature(26);
-        conditioner.setMinTemperature(15);
-        conditioner.setCurrentTemperature(21);
-        int expected = 19;
-        conditioner.decreaseCurrentTemperature();
-        assertEquals(expected, conditioner.getCurrentTemperature());
-    }
 
 }
 
