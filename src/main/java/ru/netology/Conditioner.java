@@ -36,43 +36,32 @@ public class Conditioner {
     }
 
     public void setCurrentTemperature(int currentTemperature) {
-        if (currentTemperature > maxTemperature) {
-            currentTemperature = maxTemperature;
-
-        }
-        if (currentTemperature < minTemperature) {
-            currentTemperature = minTemperature;
-
-        }
-        // здесь уверены, что все проверки прошли
-        this.currentTemperature = currentTemperature;
-    }
-
-
-    // данный метод закомментирован, хоть и требуется использовать по ДЗ return.
-    // если не указать к примеру параметр maxTemperature, то return нам возвращает температуру 0.
-    // так же я решил что необходимо при попытке изменения температуры выше/ниже нормы, устанавливать значение (max/min)Temperature
- /*   public void setCurrentTemperature(int currentTemperature) {
-        if (currentTemperature > maxTemperature) {
+        if (currentTemperature >= maxTemperature) {
+            //           this.currentTemperature = maxTemperature;
             return;
         }
-        if (currentTemperature < minTemperature) {
+        if (currentTemperature <= minTemperature) {
+            //          this.currentTemperature = minTemperature;
             return;
         }
         this.currentTemperature = currentTemperature;
     }
-*/
 
     public void increaseCurrentTemperature() {
-        if (currentTemperature < maxTemperature) {
-            currentTemperature++;
-        } return;
+        if (currentTemperature >= maxTemperature) {
+            return;
+        }
+        if (currentTemperature == 0) {
+            return;
+        }
+        this.currentTemperature++;
     }
 
     public void decreaseCurrentTemperature() {
-        if (currentTemperature > minTemperature) {
-            currentTemperature--;
-        } return; //else currentTemperature = minTemperature;
+        if (currentTemperature <= minTemperature) {
+            return;
+        }
+        this.currentTemperature--;
     }
 
 
