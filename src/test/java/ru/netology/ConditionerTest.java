@@ -20,7 +20,7 @@ class ConditionerTest {
 
 
     @ParameterizedTest(name = "[{index}]{0}")
-    @CsvFileSource(resources = "increase.csv")
+    @CsvFileSource(resources = "/increase.csv")
     void increaseCurrentTemperature1(String test, int maxTemp, int minTemp, int curTemp, int expected) {
         Conditioner conditioner = new Conditioner();
         conditioner.setMaxTemperature(maxTemp);
@@ -31,7 +31,7 @@ class ConditionerTest {
     }
 
     @ParameterizedTest(name = "[{index}]{0}")
-    @CsvFileSource(resources = "../decrease.csv")
+    @CsvFileSource(resources = "/decrease.csv")
     void decreaseCurrentTemperature1(String test, int maxTemp, int minTemp, int curTemp, int expected) {
         Conditioner conditioner = new Conditioner();
         conditioner.setMaxTemperature(maxTemp);
